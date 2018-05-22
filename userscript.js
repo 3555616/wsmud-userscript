@@ -654,7 +654,7 @@
 				boss_btn.addClass('hide-tool');
 				var boss_target, action = 0, paths, index, boss_id, kill_time;
 				boss_trigger = add_listener(['combat', 'dispfm', 'status', 'die', 'dialog', 'text', 'msg'], function(data) {
-					if (data.type == 'msg' && (map_id == 'home' || map_id == 'yz') && data.ch == 'sys') {
+					if (data.type == 'msg' && (map_id == 'home' || map_id == 'yz') && data.ch == 'rumor') {
 						var r = data.content.match(/^听说(.+)出现在(.+)-(.+)一带。$/);
 						if (r) {
 							log('boss: ' + r[1] + ' at ' + r[2] + '-' + r[3]);
