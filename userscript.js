@@ -211,10 +211,10 @@
 	aliases.set('set_auto_pfm', 'chat ;setting auto_pfm force.chu,sword.chan,sword.sui,parry.zhen,unarmed.zhen,sword.lian,throwing.jiang');
 	aliases.set('no_auto_pfm', 'chat ;setting auto_pfm');
 	aliases.set('wakuang', 'stopstate;jh fam 0 start;go west;go west;go west;go west;eq b3vi1b7d673;wa');
-	var full_skills = ['sword', 'taijijian2', 'parry', 'unarmed', 'taijiquan2',
-	                   'force', 'taijishengong2', 'whip', 'dodge',
-	                   'blade', 'yunlongbian', 'throwing', 'jinshezhui', 'staff',
-	                   'lingshezhangfa', 'club', 'baguagun'];
+	var full_skills = ['lianxi sword', 'lianxi taijijian2', 'lianxi parry', 'lianxi unarmed', 'lianxi taijiquan2',
+	                   'lianxi force', 'lianxi taijishengong2', 'lianxi whip', 'lianxi dodge',
+	                   'lianxi blade', 'lianxi yunlongbian', 'lianxi throwing', 'lianxi jinshezhui', 'lianxi staff',
+	                   'lianxi lingshezhangfa', 'lianxi club', 'lianxi baguagun'];
 	var task_path = 'fly wd;w;nu;n;w;nu;nu;nu;n;n;n;n;n;n', task_npc = '张三丰', task_check_buff = 'sword', auto_wudao_max = '七十一';
 	function check_buff() {
 		var pfms = [];
@@ -271,8 +271,8 @@
 	}
 	function perform_attack(n) {
 		var pfms = [];
-		if ((!n || pfms.length < n) && can_perform('unarmed.liu')) {
-			pfms.push('perform unarmed.liu');
+		if ((!n || pfms.length < n) && can_perform('sword.lian')) {
+			pfms.push('perform sword.lian');
 		}
 		if ((!n || pfms.length < n) && can_perform('throwing.jiang')) {
 			pfms.push('perform throwing.jiang');
@@ -284,7 +284,7 @@
 		return false;
 	}
 	function check_task_go() {
-		return can_perform('sword.poqi') || can_perform('unarmed.chan') || can_perform ('unarmed.qi');
+		return can_perform('sword.chan') || can_perform('unarmed.zhen') || can_perform ('parry.zhen');
 	}
 	// ------------------
 	
