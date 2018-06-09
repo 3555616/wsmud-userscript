@@ -203,32 +203,32 @@
 	var all_targets = new Map();
 	
 	// ---- settings ----
-	aliases.set('p1', 'eq 44ae190c224;perform dodge.power;sword.chan;sword.sui;parry.zhen;unarmed.zhen;sword.lian;throwing.jiang');
-	aliases.set('p2', 'eq h57v1e13f17;perform blade.chan;dodge.power;sword.chan;sword.sui;parry.zhen;unarmed.zhen;sword.lian;throwing.jiang');
-	aliases.set('p3', 'perform dodge.power;sword.chan;sword.sui;parry.zhen;unarmed.zhen;sword.lian;throwing.jiang');
+aliases.set('p1', 'eq h57v1e13f17;perform dodge.lingbo;blade.chan;force.power;unarmed.san;unarmed.po;unarmed.zhong;throwing.jiang');
+	aliases.set('p2', 'eq h57v1e13f17;perform dodge.lingbo;blade.chan;force.power;unarmed.san;unarmed.po;unarmed.zhong;throwing.jiang');
+	aliases.set('p3', 'perform dodge.lingbo;blade.chan;force.power;unarmed.san;unarmed.po;unarmed.zhong;throwing.jiang');
 	aliases.set('p4', 'eq a3gg1689bd4;perform force.xi;perform whip.chan');
-	aliases.set('p5', 'eq 44ae190c224;perform dodge.power;sword.chan;sword.sui;parry.zhen;unarmed.zhen;sword.lian;throwing.jiang');
-	aliases.set('eq1', 'eq 86z7172b2e6;eq q4d71e27309;eq zavf211d845;eq ih6p1b683ac;eq hjn019db1ce;eq zjw91c77c70;eq hg9r225aee0');
+	aliases.set('p5', 'eq h57v1e13f17;perform dodge.lingbo;blade.chan;force.power;unarmed.san;unarmed.po;unarmed.zhong;throwing.jiang');
+	aliases.set('eq1', 'eq 86z7172b2e6;eq q4d71e27309;eq isde2467c52;eq ih6p1b683ac;eq hjn019db1ce;eq zjw91c77c70;eq hg9r225aee0');
 	aliases.set('eq2', 'eq 86z7172b2e6;eq weoh1612a7c;eq zavf211d845;eq g4nb1eb1d84;eq ow1j13575c7;eq nw6r13e98de;eq hjn019db1ce');
 	aliases.set('eq3', 'eq 86z7172b2e6;eq q4d71e27309;eq zavf211d845;eq ih6p1b683ac;eq hjn019db1ce;eq zjw91c77c70;eq hg9r225aee0');
 	aliases.set('eq_blade', 'eq h57v1e13f17');
-	aliases.set('before_kill', 'eq 44ae190c224');
-	aliases.set('set_auto_pfm', 'chat ;setting auto_pfm dodge.power,sword.chan,sword.sui,parry.zhen,unarmed.zhen,sword.lian,throwing.jiang');
+	aliases.set('before_kill', 'eq h57v1e13f17');
+	aliases.set('set_auto_pfm', 'chat ;setting auto_pfm dodge.lingbo;blade.chan;force.power;unarmed.san;unarmed.po;unarmed.zhong;throwing.jiang');
 	aliases.set('no_auto_pfm', 'chat ;setting auto_pfm');
 	aliases.set('wakuang', 'stopstate;jh fam 0 start;go west;go west;go west;go west;eq b3vi1b7d673;wa');
-	aliases.set('wang', 'enable force mingyugong;perform force.wang;enable force taijishengong2');
+	aliases.set('wang', 'enable force mingyugong;perform force.wang;enable force mingyugong');
 	var full_skills = ['force', 'sword', 'unarmed', 'dodge', 'parry', 'throwing', 'blade', 'staff', 'whip', 'club',
-	                   'taijishengong2', 'mingyugong', 'taijiquan2', 'juemengun',
-                       'tagexing', 'jinshezhui', 'wuhuduanmendao', 'lingshezhangfa',
+	                   'lingboweibu', 'liuyangzhang', 'juemengun',
+                        'jinshezhui', 'wuhuduanmendao', 'lingshezhangfa',
                        'yunlongbian',];
-	var task_path = 'fly wd;w;nu;n;w;nu;nu;nu;n;n;n;n;n;n', task_npc = '张三丰', auto_wudao_max = '七十九', auto_finish_party = 'jh fam 3 start;task sm qwhf235d039 give 0q1k234d4c6';
+	var task_path = 'fly xy;d;d', task_npc = '逍遥子', auto_wudao_max = '七十九', auto_finish_party = 'jh fam 3 start;task sm qwhf235d039 give 0q1k234d4c6';
 	function check_buff() {
 		var pfms = [];
 		if (!my_buffs.has('force')) {
-			if (can_perform('force.chu')) {
-				pfms.push('perform force.chu');
-			} else if (can_perform('force.san')) {
-				pfms.push('perform force.san');
+			if (can_perform('force.power')) {
+				pfms.push('perform force.power');
+			} else if (can_perform('force.wang')) {
+				pfms.push('perform force.wang');
 			}
 		}
 		if (!my_buffs.has('mingyu')) {
@@ -237,8 +237,8 @@
 			}
 		}
 		if (!my_buffs.has('dodge')) {
-			if (can_perform('dodge.power')) {
-				pfms.push('perform dodge.power');
+			if (can_perform('dodge.lingbo')) {
+				pfms.push('perform dodge.lingbo');
 			}
 		}
 		if (!my_buffs.has('parry')) {
@@ -246,9 +246,9 @@
 				pfms.push('perform parry.wu');
 			}
 		}
-		if (!my_buffs.has('sword')) {
-			if (can_perform('sword.chan')) {
-				pfms.push('perform sword.chan');
+		if (!my_buffs.has('unarmed')) {
+			if (can_perform('unarmed.po')) {
+				pfms.push('perform unarmed.po');
 			}
 		}
 		if (pfms.length > 0) {
@@ -264,21 +264,21 @@
 				return false;
 			}
 		}
-		if (try_perform('sword.chan')) {
+		if (try_perform('dodge.lingbo')) {
 			return true;
 		}
-		if (try_perform('sword.sui')) {
+		if (try_perform('unarmed.san')) {
 			return true;
 		}
-		if (try_perform('unarmed.zhen')) {
+		if (try_perform('unarmed.po')) {
 			return true;
 		}
 		return false;
 	}
 	function perform_attack(n) {
 		var pfms = [];
-		if ((!n || pfms.length < n) && can_perform('unarmed.zhen')) {
-			pfms.push('perform unarmed.zhen');
+		if ((!n || pfms.length < n) && can_perform('unarmed.po')) {
+			pfms.push('perform unarmed.po');
 		}
 		if ((!n || pfms.length < n) && can_perform('throwing.jiang')) {
 			pfms.push('perform throwing.jiang');
@@ -290,7 +290,7 @@
 		return false;
 	}
 	function check_task_go() {
-		return can_perform('sword.chan') || can_perform('unarmed.zhen') || can_perform ('sword.sui');
+		return can_perform('dodge.lingbo') || can_perform('unarmed.po') || can_perform ('blade.chan');
 	}
 	// ------------------
 	
